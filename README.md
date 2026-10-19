@@ -1,4 +1,4 @@
-# Lyrics-Based Auto-Tagging (CSC 575, DP1)
+# Lyrics-Based Auto-Tagging (CSC 575, DP1_D)
 
 Predicting the tags a listener would attach to a song from its lyrics alone, using Music4All.
 
@@ -148,47 +148,7 @@ keeping the default for any tag with no validation positives.
 
 Stretch: sentence embeddings, multilingual lyrics, mel-spectrogram features.
 
-## 9. Related Work
-
-Turnbull et al. [8] treat annotation and retrieval as one supervised multiclass, multilabel
-problem, training a Gaussian mixture model per word on CAL500 and reaching annotation quality
-comparable to humans. They argue against one-versus-all because it "results in binary decisions
-for each word". Binary relevance, which we use, is that approach, so we keep per-tag scores and
-tune thresholds. Lamere [3] surveys where social tags come from and is blunt about their noise.
-The Million Song Dataset [9] set the scale of tagging research; Music4All [2] suits us better
-since it ships lyrics, clips and tags together.
-
-On lyrics specifically, Mahedero et al. [10] applied standard NLP tooling early. Mayer et al.
-[5] argued lyrics are not ordinary documents, since they rhyme and use slang, and built rhyme
-features from phoneme transcriptions ("sky" and "lie" share /ai/ but not their spelling) plus
-text statistics, over 397 lyrics in ten genres. They prepared that collection by hand, removing
-markup like `[2x]` and `[chorus]` and writing the repeated sections out in full; we strip the
-markers but cannot expand them automatically, so our repetition counts are lower than theirs
-would be. Mayer and Rauber [11] combined classifier outputs across audio and lyrics rather than
-concatenating features, beating the best single algorithm, though late fusion only beat
-concatenation on their larger dataset. Hu et al. [12] found plain bag-of-words more useful than
-part-of-speech features for mood, and Hu and Downie [1] followed with the feature analysis in
-§3, using the 63-feature MARSYAS spectral set on the audio side and 25 stylistic features
-including the ratio of repeated lines that our repetition measure follows. McKay et al. [13]
-compared lyrical against audio, symbolic and cultural features for genre: cultural strongest,
-lyrical weakest, combinations generally better.
-
-Beyond n-grams, Fell and Sporleder [14] modelled vocabulary, style, semantics and song
-structure. Tsaptsinos [15] used a hierarchical attention network on label sets of 117 and 20
-genres, beating non-neural baselines on both and an LSTM on 117 genres (46.42% against 43.66%),
-though the LSTM edged it on 20 (49.77% against 49.50%). On the audio side, Choi et al. [16]
-introduced a convolutional recurrent network for tagging, evaluated on the Million Song
-Dataset's top 50 tags by ROC-AUC, so not directly comparable to our numbers. For the
-multi-label machinery, we take binary relevance and the label cardinality and density measures
-from Tsoumakas and Katakis [7]. Sechidis et al. [4] show that splitting multi-label data evenly
-is harder than in the single-label case, and the implementations come from scikit-learn [6].
-
-These studies use small, curated label sets: 397 lyrics in ten genres [5], 18 mood categories
-[12], [1], a 117-genre taxonomy [15]. I have not found one that takes the Last.fm tag
-vocabulary attached to Music4All and asks, tag by tag, which tags lyrics predict as the
-vocabulary size varies. We evaluate the head of it, at `N` = 20, 50 and 100.
-
-## 10. Team Roles
+## 9. Team Roles
 
 - **A: Data, features and the lyrics models.** Tan Dai Ngo. Loading, cleaning, tag vocabulary,
   target matrix, splits, text and style features, the three classifiers, timing, thresholds.
@@ -197,9 +157,11 @@ vocabulary size varies. We evaluate the head of it, at `N` = 20, 50 and 100.
 - **C: Audio comparison, analysis and reporting.** Unassigned. Descriptor baseline, tag
   category rubric, error analysis, figures, ISMIR LaTeX conversion.
 
-Code review, the §9 reading and the presentation are shared.
+Code review, written reports, and presentation are shared.
 
 ## Tan Dai Ngo
+
+Workstream A: data, features and the lyrics models.
 
 ### Objective 1: Music4All lyrics and tag pipeline (Oct 30)
 
