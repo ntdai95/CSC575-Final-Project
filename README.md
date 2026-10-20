@@ -100,7 +100,6 @@ Lyrics are copyrighted, so the repository holds code and derived results only.
 | scikit-learn [6] | Vectorisers, classifiers, metrics |
 | NLTK | Tokenisation, POS tagging, `cmudict` for rhymes |
 | matplotlib | Figures |
-| librosa | Only for the optional mel-spectrogram features |
 
 We are working from the scikit-learn docs on multi-label classification, text feature
 extraction and model evaluation. The Chapter 1 notebooks, *A music and sound exposition of the
@@ -210,11 +209,11 @@ Workstream A: data, features and the lyrics models.
 - PI5 (advanced): test mood against genre on the prevalence-matched pairs from Workstream C
   with a paired bootstrap interval on the mean per-tag F1 difference
 
-## [Teammate 2: name to be added]
+## Tan Dai Ngo & Maki Akinkunmi
 
 Workstream B: multi-label strategy and statistics.
 
-### Objective 1: Hyperparameter protocol and model selection (Nov 13)
+### Objective 1: Hyperparameter protocol and model selection (Nov 13) - Tan Dai Ngo
 
 - PI1 (basic): write the grid search that tunes each classifier on validation macro-F1 and
   writes every configuration to a results CSV
@@ -227,7 +226,7 @@ Workstream B: multi-label strategy and statistics.
 - PI5 (advanced): re-run the selection on micro-F1 and macro average precision and report
   whether the winning classifier changes with the metric
 
-### Objective 2: Uncertainty estimates (Nov 20)
+### Objective 2: Uncertainty estimates (Nov 20) - Tan Dai Ngo
 
 - PI1 (basic): implement the 95% bootstrap interval with 1,000 resamples and report it with
   each score in the comparison tables
@@ -239,7 +238,7 @@ Workstream B: multi-label strategy and statistics.
 - PI5 (advanced): compare artist-clustered intervals against song-level ones and report the
   difference in width
 
-### Objective 3: Multi-label strategy comparison (Dec 4)
+### Objective 3: Multi-label strategy comparison (Dec 4) - Maki Akinkunmi
 
 - PI1 (basic): write the label-strategy wrapper so binary relevance and classifier chains run
   through one interface and emit the same results format
@@ -251,7 +250,7 @@ Workstream B: multi-label strategy and statistics.
 - PI5 (advanced): test whether the chain order matters by running several random orders and
   reporting the spread
 
-## [Teammate 3: name to be added]
+## Maki Akinkunmi
 
 Workstream C: audio comparison, analysis and reporting.
 
