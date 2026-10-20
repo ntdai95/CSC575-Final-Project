@@ -1,10 +1,10 @@
-# Lyrics-Based Auto-Tagging (CSC 575, DP1_D)
+# Lyrics-Based Auto-Tagging (CSC 575, DP1_A)
 
 Predicting the tags a listener would attach to a song from its lyrics alone, using Music4All.
 
 ## Project Design Specification
 
-- Project Title: Lyrics-based auto-tagging of music (DP1_D)
+- Project Title: Lyrics-based auto-tagging of music (DP1_A)
 - Tools: Python, Jupyter Notebook, NumPy, pandas, matplotlib, scikit-learn, NLTK
 - Datasets: Music4All, <https://sites.google.com/view/contact4music4all>
 
