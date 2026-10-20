@@ -1,11 +1,11 @@
-# Lyrics-Based Auto-Tagging (CSC 575, DP1)
+# Lyrics-Based Auto-Tagging (CSC 575, DP1_A)
 
 Predicting the tags a listener would attach to a song from its lyrics alone.
 
 ## Project Design Specification
 
 - Project Title: Lyrics-based auto-tagging of music
-- Default Project: DP1
+- Default Project: DP1_A
 - Tools: Python, Jupyter Notebook, NumPy, pandas, matplotlib, scikit-learn, NLTK
 - Datasets: Music4All [2], <https://sites.google.com/view/contact4music4all>, 109,269 songs,
   19,541 Last.fm tags, lyrics in 46 languages, six Spotify audio descriptors
