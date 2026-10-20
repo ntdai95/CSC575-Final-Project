@@ -4,11 +4,9 @@ Predicting the tags a listener would attach to a song from its lyrics alone, usi
 
 ## Project Design Specification
 
-- Project Title: Lyrics-based auto-tagging of music
-- Default Project: DP1
-- Tools: Python, Jupyter Notebook, NumPy, pandas, matplotlib, scikit-learn, NLTK, librosa
+- Project Title: Lyrics-based auto-tagging of music (DP1_D)
+- Tools: Python, Jupyter Notebook, NumPy, pandas, matplotlib, scikit-learn, NLTK
 - Datasets: Music4All, <https://sites.google.com/view/contact4music4all>
-- Status: October 2026. Still looking for teammates, so workstreams B and C have no owner.
 
 ## 1. Project Overview
 
@@ -151,9 +149,9 @@ Stretch: sentence embeddings, multilingual lyrics, mel-spectrogram features.
 
 - **A: Data, features and the lyrics models.** Tan Dai Ngo. Loading, cleaning, tag vocabulary,
   target matrix, splits, text and style features, the three classifiers, timing, thresholds.
-- **B: Multi-label strategy and statistics.** Unassigned. Hyperparameter protocol, bootstrap
+- **B: Multi-label strategy and statistics.** Tan Dai Ngo & Maki Akinkunmi. Hyperparameter protocol, bootstrap
   intervals, and the binary relevance against classifier chains comparison.
-- **C: Audio comparison, analysis and reporting.** Unassigned. Descriptor baseline, tag
+- **C: Audio comparison, analysis and reporting.** Maki Akinkunmi. Descriptor baseline, tag
   category rubric, error analysis, figures, ISMIR LaTeX conversion.
 
 Code review, written reports, and presentation are shared.
