@@ -7,8 +7,11 @@ Predicting the tags a listener would attach to a song from its lyrics alone.
 - Project Title: Lyrics-based auto-tagging of music
 - Default Project: DP1_A
 - Tools: Python, Jupyter Notebook, NumPy, pandas, matplotlib, scikit-learn, NLTK
-- Datasets: Music4All [2], <https://sites.google.com/view/contact4music4all>, 109,269 songs,
-  19,541 Last.fm tags, lyrics in 46 languages, six Spotify audio descriptors
+- Datasets: Music4All-EN [2], the English lyrics subset of Music4All, from
+  <https://drive.google.com/file/d/1Z9GiOCju9go-TnnJA1g5mQQsNbYlblz0/view>: 84,103 tracks,
+  11,877 artists, 14,507 Last.fm tags, 671 genre tags, full lyrics, and six Spotify audio
+  descriptors per track. No audio clips, so everything here is text plus metadata. The data is
+  not committed to this repository; download it and unzip it to `music4all-en/`
 - Team: Tan Dai Ngo (data, features, models), Maki Akinkunmi (evaluation, audio, reporting)
 - Approach: TF-IDF and bag-of-words features, binary relevance over Naive Bayes, logistic
   regression and a linear SVM, scored per tag at `N` = 20, 50 and 100 tags
@@ -20,8 +23,8 @@ Turnbull et al. [8] frame annotation and retrieval as one supervised multiclass,
 problem over CAL500, arguing against one-versus-all because it "results in binary decisions for
 each word"; binary relevance, which we use, is that approach, so we keep per-tag scores and
 tune thresholds. Lamere [3] surveys social tagging and its noise, which matters because many
-Music4All tags describe the listener rather than the music. The Million Song Dataset [9] set
-the scale of tagging research, but Music4All [2] ships lyrics, clips and tags together.
+of the 14,507 tags here describe the listener rather than the music. The Million Song Dataset [9] set
+the scale of tagging research, but Music4All [2] ships lyrics and tags together.
 
 On lyrics, Mahedero et al. [10] applied standard NLP tooling early, and Mayer et al. [5] added
 rhyme and text statistics over 397 lyrics in ten genres; we take their line statistics but not
@@ -41,8 +44,8 @@ Last.fm tags on Music4All lyrics can predict as the vocabulary size varies.
 ### Tan Dai Ngo
 
 - Objective: Music4All lyrics and tag pipeline (Oct 30)
-  - (basic) load the metadata, tag and lyrics files, reconcile the published counts
-  - (basic) clean lyrics, filter to English on `lang`, drop exact duplicates
+  - (basic) load the five CSVs and the 84,103 lyrics files, reconcile the row counts
+  - (basic) clean lyrics, strip blank lines, drop exact duplicates
   - (expected) normalise tags, apply the exclusion list, build the target matrix
   - (expected) build both splits, pick the shared vocabulary, report per-tag counts
   - (advanced) compare the splits on artist coverage and lost test positives
@@ -53,9 +56,10 @@ Last.fm tags on Music4All lyrics can predict as the vocabulary size varies.
   - (expected) time training and prediction at 10, 25, 50 and 100 percent of the data
   - (advanced) add the line statistics from Mayer et al. [5], test the rare tags
 - Objective: Vocabulary sweep and thresholds (Dec 4)
-  - (basic) plot tag frequency, count tags under 100 songs
+  - (basic) plot tag frequency, count how many of the 14,507 tags fall under 100 songs
   - (basic) per-tag table at `N` = 50, name the five best and worst tags
-  - (expected) run the comparison at `N` = 20, 50 and 100
+  - (expected) run the comparison at `N` = 20, 50 and 100, where support runs from 22,652
+    songs down to 530
   - (expected) tune per-tag thresholds on validation, report the macro-F1 change
   - (advanced) extract top-weighted terms per tag, flag artist-name leakage
 
@@ -82,7 +86,8 @@ Last.fm tags on Music4All lyrics can predict as the vocabulary size varies.
 
 Progress report due Nov 13. Final report and presentation Dec 4. Code review, the reading
 above and the presentation are shared. Stretch items if the schedule holds: classifier chains,
-sentence embeddings, multilingual lyrics, mel-spectrogram features.
+a sentence-embedding comparison, and words-per-minute from the `duration_ms` field. The subset
+ships no audio, so spectrogram work is out of scope.
 
 ### References
 
