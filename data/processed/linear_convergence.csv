@@ -1,0 +1,9 @@
+split,features,model,tags_not_converged,seconds
+random,counts,logistic,1,1031.4
+random,counts,svm,50,1124.9
+random,tfidf,logistic,0,32.6
+random,tfidf,svm,0,89.3
+artist,counts,logistic,3,876.5
+artist,counts,svm,50,754.5
+artist,tfidf,logistic,0,33.6
+artist,tfidf,svm,0,89.5

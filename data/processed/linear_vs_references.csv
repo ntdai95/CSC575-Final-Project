@@ -1,0 +1,9 @@
+split,features,model,cut,micro_f1,reference_micro_f1,micro_gain,macro_f1,reference_macro_f1,macro_gain
+artist,counts,logistic,0.15,0.235,0.239,-0.004,0.167,0.131,0.036
+artist,counts,svm,-0.75,0.198,0.239,-0.041,0.149,0.131,0.018
+artist,tfidf,logistic,0.15,0.309,0.267,0.042,0.149,0.079,0.07
+artist,tfidf,svm,-0.5,0.262,0.267,-0.005,0.176,0.079,0.097
+random,counts,logistic,0.15,0.256,0.26,-0.004,0.192,0.152,0.04
+random,counts,svm,-0.5,0.216,0.26,-0.044,0.171,0.152,0.019
+random,tfidf,logistic,0.15,0.32,0.273,0.047,0.169,0.084,0.085
+random,tfidf,svm,-0.5,0.285,0.273,0.012,0.209,0.084,0.125
