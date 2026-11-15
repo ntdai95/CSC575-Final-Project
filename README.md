@@ -19,27 +19,30 @@ Predicting the tags a listener would attach to a song from its lyrics alone.
 
 ### Related Work
 
-Turnbull et al. [8] frame annotation and retrieval as one supervised multiclass, multilabel
-problem over CAL500, arguing against one-versus-all because it "results in binary decisions for
-each word"; binary relevance, which we use, is that approach, so we keep per-tag scores and
-tune thresholds. Lamere [3] surveys social tagging and its noise, which matters because many
-of the 14,507 tags here describe the listener rather than the music. The Million Song Dataset [9] set
-the scale of tagging research, but Music4All [2] ships lyrics and tags together.
+Turnbull et al. [6] model music and words with a multi-class Naive Bayes approach, treating
+semantic annotation as one M-class problem rather than M binary one-versus-all problems, where M
+is the size of the vocabulary. Binary relevance is the second of those routes and it is the one
+we take, so we keep per-tag scores and tune thresholds. Levy and Sandler [3] derive a semantic
+space from social tags and observe that such tags unavoidably contain a great deal of irrelevant
+content, which matters because many of the 14,507 tags here describe the listener rather than
+the music. The Million Song Dataset [7] set the scale of tagging research, but Music4All [2]
+ships lyrics and tags together.
 
-On lyrics, Mahedero et al. [10] applied standard NLP tooling early, and Mayer et al. [5] added
-rhyme and text statistics over 397 lyrics in ten genres; we take their line statistics but not
-the phoneme work. Mayer and Rauber [11] fused classifier outputs across audio and lyrics rather
-than concatenating features. Hu et al. [12] found plain bag-of-words beat part-of-speech
-features for mood, and Hu and Downie [1] then showed lyric features significantly outperformed
-audio spectral features in seven of 18 mood categories, with audio ahead in one. McKay et al.
-[13] ranked lyrical features weakest against audio, symbolic and cultural ones for genre. Fell
-and Sporleder [14] modelled style and structure, and Tsaptsinos [15] used a hierarchical
-attention network on 117 and 20 genres, beating an LSTM on 117 but not on 20. Choi et al. [16]
-introduced a convolutional recurrent network for audio tagging. For the multi-label machinery
-we take binary relevance and the cardinality and density measures from Tsoumakas and Katakis
-[7], Sechidis et al. [4] show even splits are harder than in the single-label case, and the
-implementations come from scikit-learn [6]. None of these ask, tag by tag, which of the
-Last.fm tags on Music4All lyrics can predict as the vocabulary size varies.
+On lyrics, Kleedorfer et al. [8] clustered song lyrics to detect recurring topics, and Mayer et
+al. [4] added rhyme and text statistics over 397 song lyrics in ten genres; we take their line
+statistics but not the phoneme work. Mayer and Rauber [9] combined audio and lyrics through
+classifier ensembles rather than concatenating features. Hu et al. [10] found part-of-speech
+features and function words are not as good as bag-of-words for mood, and Hu and Downie [1] then
+showed lyric features significantly outperformed audio spectral features in seven of 18 mood
+categories, with audio ahead in one. McKay et al. [11] ranked lyrical features weakest against
+audio, symbolic and cultural ones for genre. Fell and Sporleder [12] modelled style and
+structure, and Tsaptsinos [13] used a hierarchical attention network on a 117-genre dataset and
+a reduced 20-genre one, where the attention network won on 117 but a plain LSTM beat it on 20.
+Choi et al. [14] introduced a convolutional recurrent network for music tagging. Rennie et al.
+[15] document the poor assumptions of multinomial Naive Bayes on text, Fan et al. [16] describe
+the LIBLINEAR solver behind our linear SVM, and the implementations come from scikit-learn [5].
+None of these ask, tag by tag, which of the Last.fm tags on Music4All lyrics can predict as the
+vocabulary size varies.
 
 ### Tan Dai Ngo
 
@@ -54,7 +57,7 @@ Last.fm tags on Music4All lyrics can predict as the vocabulary size varies.
   - (basic) switch to TF-IDF, sweep min_df, max_df and n-gram range
   - (expected) add logistic regression and linear SVM, compare against both references
   - (expected) time training and prediction at 10, 25, 50 and 100 percent of the data
-  - (advanced) add the line statistics from Mayer et al. [5], test the rare tags
+  - (advanced) add the line statistics from Mayer et al. [4], test the rare tags
 - Objective: Vocabulary sweep and thresholds (Dec 4)
   - (basic) plot tag frequency, count how many of the 14,507 tags fall under 100 songs
   - (basic) per-tag table at `N` = 50, name the five best and worst tags
@@ -91,34 +94,34 @@ ships no audio, so spectrogram work is out of scope.
 
 ### References
 
-[1] X. Hu and J. S. Downie, "When lyrics outperform audio for music mood classification," ISMIR, Utrecht, 2010, pp. 619-624.
+[1] X. Hu and J. S. Downie, "When lyrics outperform audio for music mood classification: a feature analysis," ISMIR, Utrecht, 2010, pp. 619-624.
 
-[2] I. A. P. Santana et al., "Music4All: a new music database and its applications," IWSSIP, Niteroi, 2020, pp. 399-404.
+[2] I. A. P. Santana, F. Pinhelli, J. Donini, L. Catharin, R. B. Mangolin, Y. M. G. da Costa, V. D. Feltrim, and M. A. Domingues, "Music4All: a new music database and its applications," IWSSIP, Niteroi, 2020.
 
-[3] P. Lamere, "Social tagging and music information retrieval," J. New Music Research, 37(2), pp. 101-114, 2008.
+[3] M. Levy and M. Sandler, "A semantic space for music derived from social tags," ISMIR, Vienna, 2007.
 
-[4] K. Sechidis, G. Tsoumakas, and I. Vlahavas, "On the stratification of multi-label data," ECML PKDD, Athens, 2011, pp. 145-158.
+[4] R. Mayer, R. Neumayer, and A. Rauber, "Rhyme and style features for musical genre classification by song lyrics," ISMIR, Philadelphia, 2008, pp. 337-342.
 
-[5] R. Mayer, R. Neumayer, and A. Rauber, "Rhyme and style features for musical genre classification by song lyrics," ISMIR, Philadelphia, 2008, pp. 337-342.
+[5] F. Pedregosa et al., "Scikit-learn: machine learning in Python," J. Machine Learning Research, 12, pp. 2825-2830, 2011.
 
-[6] F. Pedregosa et al., "Scikit-learn: machine learning in Python," J. Machine Learning Research, 12, pp. 2825-2830, 2011.
+[6] D. Turnbull, L. Barrington, and G. Lanckriet, "Modeling music and words using a multi-class naive Bayes approach," ISMIR, Victoria, 2006.
 
-[7] G. Tsoumakas and I. Katakis, "Multi-label classification: an overview," Int. J. Data Warehousing and Mining, 3(3), pp. 1-13, 2007.
+[7] T. Bertin-Mahieux, D. P. W. Ellis, B. Whitman, and P. Lamere, "The million song dataset," ISMIR, Miami, 2011, pp. 591-596.
 
-[8] D. Turnbull, L. Barrington, D. Torres, and G. Lanckriet, "Semantic annotation and retrieval of music and sound effects," IEEE TASLP, 16(2), pp. 467-476, 2008.
+[8] F. Kleedorfer, P. Knees, and T. Pohle, "Oh oh oh whoah! Towards automatic topic detection in song lyrics," ISMIR, Philadelphia, 2008, pp. 287-292.
 
-[9] T. Bertin-Mahieux, D. P. W. Ellis, B. Whitman, and P. Lamere, "The million song dataset," ISMIR, Miami, 2011, pp. 591-596.
+[9] R. Mayer and A. Rauber, "Music genre classification by ensembles of audio and lyrics features," ISMIR, Miami, 2011, pp. 675-680.
 
-[10] J. P. G. Mahedero, A. Martinez, P. Cano, M. Koppenberger, and F. Gouyon, "Natural language processing of lyrics," ACM Multimedia, Singapore, 2005, pp. 475-478.
+[10] X. Hu, J. S. Downie, and A. F. Ehmann, "Lyric text mining in music mood classification," ISMIR, Kobe, 2009, pp. 411-416.
 
-[11] R. Mayer and A. Rauber, "Musical genre classification by ensembles of audio and lyrics features," ISMIR, Miami, 2011, pp. 675-680.
+[11] C. McKay, J. A. Burgoyne, J. Hockman, J. B. L. Smith, G. Vigliensoni, and I. Fujinaga, "Evaluating the genre classification performance of lyrical features relative to audio, symbolic and cultural features," ISMIR, Utrecht, 2010, pp. 213-218.
 
-[12] X. Hu, J. S. Downie, and A. F. Ehmann, "Lyric text mining in music mood classification," ISMIR, Kobe, 2009, pp. 411-416.
+[12] M. Fell and C. Sporleder, "Lyrics-based analysis and classification of music," COLING, Dublin, 2014, pp. 620-631.
 
-[13] C. McKay, J. A. Burgoyne, J. Hockman, J. B. L. Smith, G. Vigliensoni, and I. Fujinaga, "Evaluating the genre classification performance of lyrical features relative to audio, symbolic and cultural features," ISMIR, Utrecht, 2010, pp. 213-218.
+[13] A. Tsaptsinos, "Lyrics-based music genre classification using a hierarchical attention network," ISMIR, Suzhou, 2017, pp. 694-701.
 
-[14] M. Fell and C. Sporleder, "Lyrics-based analysis and classification of music," COLING, Dublin, 2014, pp. 620-631.
+[14] K. Choi, G. Fazekas, M. Sandler, and K. Cho, "Convolutional recurrent neural networks for music classification," ICASSP, New Orleans, 2017.
 
-[15] A. Tsaptsinos, "Lyrics-based music genre classification using a hierarchical attention network," ISMIR, Suzhou, 2017, pp. 694-701.
+[15] J. D. M. Rennie, L. Shih, J. Teevan, and D. R. Karger, "Tackling the poor assumptions of naive Bayes text classifiers," ICML, Washington DC, 2003.
 
-[16] K. Choi, G. Fazekas, M. Sandler, and K. Cho, "Convolutional recurrent neural networks for music classification," ICASSP, New Orleans, 2017, pp. 2392-2396.
+[16] R.-E. Fan, K.-W. Chang, C.-J. Hsieh, X.-R. Wang, and C.-J. Lin, "LIBLINEAR: a library for large linear classification," J. Machine Learning Research, 9, pp. 1871-1874, 2008.
