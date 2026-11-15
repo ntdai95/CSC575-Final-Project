@@ -58,8 +58,8 @@ Last.fm tags on Music4All lyrics can predict as the vocabulary size varies.
 - Objective: Vocabulary sweep and thresholds (Dec 4)
   - (basic) plot tag frequency, count how many of the 14,507 tags fall under 100 songs
   - (basic) per-tag table at `N` = 50, name the five best and worst tags
-  - (expected) run the comparison at `N` = 20, 50 and 100, where support runs from 22,652
-    songs down to 530
+  - (expected) run the comparison at `N` = 20, 50 and 100, where support on the shared
+    training rows runs from 9,818 songs down to 238
   - (expected) tune per-tag thresholds on validation, report the macro-F1 change
   - (advanced) extract top-weighted terms per tag, flag artist-name leakage
 

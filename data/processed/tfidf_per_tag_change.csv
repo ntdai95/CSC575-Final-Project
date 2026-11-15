@@ -1,0 +1,101 @@
+tag,support,f1_bow,f1_tfidf,change,split
+rock,3161,0.437,0.415,-0.022,random
+pop,2362,0.468,0.384,-0.084,random
+indie,2159,0.377,0.343,-0.034,random
+alternative,1636,0.214,0.257,0.043,random
+female vocalists,1394,0.269,0.225,-0.044,random
+electronic,1253,0.174,0.157,-0.017,random
+indie rock,999,0.149,0.076,-0.073,random
+alternative rock,1047,0.156,0.063,-0.093,random
+metal,852,0.373,0.387,0.014,random
+soul,663,0.259,0.042,-0.217,random
+singer-songwriter,731,0.151,0.024,-0.127,random
+british,606,0.071,0.013,-0.058,random
+80s,684,0.159,0.024,-0.135,random
+folk,668,0.192,0.047,-0.145,random
+classic rock,733,0.252,0.087,-0.165,random
+dance,532,0.267,0.07,-0.197,random
+hip-hop,594,0.559,0.596,0.037,random
+indie pop,518,0.016,0.0,-0.016,random
+rnb,449,0.234,0.004,-0.23,random
+rap,455,0.557,0.586,0.029,random
+hard rock,497,0.061,0.012,-0.049,random
+90s,437,0.028,0.005,-0.023,random
+punk,476,0.098,0.008,-0.09,random
+70s,415,0.118,0.0,-0.118,random
+experimental,419,0.064,0.0,-0.064,random
+post-hardcore,372,0.079,0.0,-0.079,random
+new wave,373,0.05,0.0,-0.05,random
+synthpop,370,0.015,0.0,-0.015,random
+acoustic,333,0.016,0.0,-0.016,random
+emo,325,0.036,0.0,-0.036,random
+progressive rock,309,0.081,0.013,-0.068,random
+hardcore,330,0.116,0.0,-0.116,random
+metalcore,289,0.188,0.0,-0.188,random
+post-punk,323,0.061,0.0,-0.061,random
+pop punk,323,0.031,0.0,-0.031,random
+60s,272,0.086,0.0,-0.086,random
+heavy metal,343,0.221,0.021,-0.2,random
+punk rock,317,0.041,0.0,-0.041,random
+death metal,273,0.377,0.302,-0.075,random
+country,213,0.108,0.0,-0.108,random
+dream pop,226,0.012,0.0,-0.012,random
+jazz,194,0.07,0.0,-0.07,random
+cover,223,0.016,0.0,-0.016,random
+psychedelic,229,0.051,0.0,-0.051,random
+pop rock,200,0.013,0.0,-0.013,random
+lo-fi,235,0.006,0.0,-0.006,random
+fip,189,0.012,0.0,-0.012,random
+funk,169,0.063,0.012,-0.051,random
+shoegaze,189,0.007,0.0,-0.007,random
+progressive metal,248,0.132,0.007,-0.125,random
+rock,3521,0.423,0.449,0.026,artist
+pop,2195,0.446,0.35,-0.096,artist
+indie,2113,0.363,0.342,-0.021,artist
+alternative,1527,0.205,0.233,0.028,artist
+female vocalists,1252,0.235,0.211,-0.024,artist
+electronic,1276,0.16,0.15,-0.01,artist
+indie rock,921,0.109,0.079,-0.03,artist
+alternative rock,1026,0.155,0.062,-0.093,artist
+metal,968,0.358,0.334,-0.024,artist
+soul,550,0.213,0.057,-0.156,artist
+singer-songwriter,727,0.13,0.012,-0.118,artist
+british,400,0.036,0.005,-0.031,artist
+80s,848,0.124,0.035,-0.089,artist
+folk,743,0.174,0.024,-0.15,artist
+classic rock,995,0.229,0.054,-0.175,artist
+dance,591,0.288,0.063,-0.225,artist
+hip-hop,458,0.48,0.516,0.036,artist
+indie pop,531,0.022,0.007,-0.015,artist
+rnb,319,0.162,0.018,-0.144,artist
+rap,358,0.502,0.562,0.06,artist
+hard rock,919,0.07,0.0,-0.07,artist
+90s,269,0.059,0.0,-0.059,artist
+punk,557,0.05,0.004,-0.046,artist
+70s,500,0.133,0.0,-0.133,artist
+experimental,449,0.06,0.0,-0.06,artist
+post-hardcore,358,0.089,0.006,-0.083,artist
+new wave,363,0.024,0.0,-0.024,artist
+synthpop,347,0.004,0.0,-0.004,artist
+acoustic,332,0.004,0.0,-0.004,artist
+emo,277,0.015,0.0,-0.015,artist
+progressive rock,175,0.031,0.0,-0.031,artist
+hardcore,296,0.064,0.007,-0.057,artist
+metalcore,174,0.103,0.011,-0.092,artist
+post-punk,361,0.051,0.0,-0.051,artist
+pop punk,312,0.02,0.0,-0.02,artist
+60s,264,0.07,0.0,-0.07,artist
+heavy metal,568,0.181,0.007,-0.174,artist
+punk rock,437,0.017,0.0,-0.017,artist
+death metal,289,0.376,0.341,-0.035,artist
+country,232,0.082,0.0,-0.082,artist
+dream pop,271,0.006,0.0,-0.006,artist
+jazz,207,0.038,0.0,-0.038,artist
+cover,206,0.012,0.0,-0.012,artist
+psychedelic,204,0.017,0.0,-0.017,artist
+pop rock,236,0.006,0.0,-0.006,artist
+lo-fi,230,0.0,0.0,0.0,artist
+fip,194,0.018,0.0,-0.018,artist
+funk,166,0.024,0.0,-0.024,artist
+shoegaze,150,0.0,0.0,0.0,artist
+progressive metal,220,0.105,0.0,-0.105,artist

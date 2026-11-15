@@ -1,0 +1,3 @@
+split,bow_micro_f1,tfidf_micro_f1_default_cut,tfidf_micro_f1_tuned_cut,micro_gain,bow_macro_f1,tfidf_macro_f1_tuned_cut,macro_gain,best_threshold,best_ngram_range,best_min_df,best_max_df,bow_terms,tfidf_terms
+random,0.26,0.044,0.273,0.013,0.152,0.084,-0.068,0.05,"(1, 2)",20,0.5,86194,53828
+artist,0.239,0.036,0.267,0.028,0.131,0.079,-0.052,0.05,"(1, 2)",20,0.5,85307,54169
